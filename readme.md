@@ -1,0 +1,13 @@
+•	En el paso 11 he usado el comando git reset --hard HEAD~1. El comando tiene las partes reset, que es el comando que revierte el último commit, propiamente dicho, --hard, que indica que el comando reset será aplicado forzosamente y HEAD~1, que indica que iremos al “padre” del último commit, que hemos hecho.
+•	En el paso 12 primero he usado git reflog, para localizar el hash del elemento que habíamos deshecho. Luego hemos usado git reset --hard f39d021, donde reset, es el comando que revierte al hash indicado; --hard como en el anterior proceso, indica que el comando será aplicado forzosamente; y f39d021es el hash, que varía en cada caso.
+•	En el paso 13 no se produjo ningún conflicto. Esto se debe a que git incorpora los cambios realizados en git-nuestro.md sin problema alguno.
+•	En el paso 19 sí hubo conflicto, porque los cambios realizados sobre el archivo git-nuestro.md de “htmlify” entran en conflicto con los cambios que ya había en su homólogo de “styled”.
+•	En el paso 21 no ha habido ningún conflicto, porque ha hecho un fast-forward para desplazar el HEAD de la rama a “styled”, incorporando el cambio hecho en “styled”.
+•	En el paso 25 he usado los comandos git log --graph --decorate --pretty=oneline. Esto muestra el git log, en forma de “plano de metro”, gracias a --graph, mostrando sus ramificaciones. El comando --decorate muestra información de las referencias que apuntan a cada commit. Por último, --pretty=oneline, hace que la información referente a cada commit se muestre unificada en una única línea.
+•	En el paso 26, se podría haber hecho el merge fast-forward, porque “title” es un descendiente directo de “main”.
+•	En el paso 27, he usado el comando git reset 8d046dc. He evitado el uso del modificador --hard para evitar que se pierdan los cambios del working copy.
+•	En el paso 28 he usado el comando git reset --hard 8d046dc, para que descarte los cambios con el modificador --hard.
+•	En el paso 29, he usado el comando git branch -D title, para forzar a git a eliminar la rama, cosa que no pasaba con el modificador -d.
+•	En el paso 30, he usado el comando git merge title, para unir title en main, pero antes he tenido que usar git branch title, porque title había sido eliminado.
+•	En el paso 32, he usado el comando git checkout c5ebbc7a461a8e1191052d9fc9c4bf0dd0017a4f, donde c5ebbc7a461a8e1191052d9fc9c4bf0dd0017a4f es el hash del commit donde creé la plegaria, para llegar a este commit, he usado el comando git log.
+•	En el paso 33, he usado git checkout de0681f, donde de0681f es el hash del commit donde añadí el título. En este caso he usado, git reflog, para encontrar el hash, porque con git log, solo aparecen los cambios que están operativos, no los que se han deshecho.
